@@ -39,5 +39,50 @@ namespace Travail_2_Jeu
             this.enemyHitbox = new RectangleF(enemyPositionX, enemyPositionY, enemyWidth, enemyHeight);
             this.alive = true;
         }
+
+        public Bitmap GetEnemyBitmap()
+        {
+            return enemyBitmap;
+        }
+
+        public void SetEnemyWalkAnimation(int enemySkinPositionX)
+        {
+            this.enemySkinPositionX = enemySkinPositionX;
+        }
+
+        public void Move()
+        {
+            enemyPositionY += enemySpeed;
+        }
+
+        public int GetEnemyPositionX()
+        {
+            return enemyPositionX;
+        }
+
+        public int GetEnemyPositionY()
+        {
+            return enemyPositionY;
+        }
+
+        public RectangleF GetEnemySkin()
+        {
+            return enemySkin;
+        }
+
+        public RectangleF GetEnemyHitbox()
+        {
+            return enemyHitbox;
+        }
+
+        public bool IsAlive()
+        {
+            return alive;
+        }
+
+        public void Kill()
+        {
+            alive = false;
+        }
     }
 }
