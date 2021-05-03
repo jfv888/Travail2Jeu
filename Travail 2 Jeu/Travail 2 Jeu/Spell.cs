@@ -35,5 +35,55 @@ namespace Travail_2_Jeu
             this.onCooldown = false;
             this.spellHit = false;
         }
+
+        public Bitmap GetSpellBitmap()
+        {
+            return spellBitmap;
+        }
+
+        public void ShootUp()
+        {
+            spellPositionY = spellPositionY - spellSpeed;
+        }
+
+        public void ShootLeft()
+        {
+            spellPositionX = spellPositionX - spellSpeed;
+        }
+
+        public void ShootRight()
+        {
+            spellPositionX += spellSpeed;
+        }
+
+        public void ShootDown()
+        {
+            spellPositionY += spellSpeed;
+        }
+
+        public int GetSpellPositionX()
+        {
+            return spellPositionX;
+        }
+
+        public int GetSpellPositionY()
+        {
+            return spellPositionY;
+        }
+
+        public RectangleF GetSpellHitbox()
+        {
+            return spellHitbox;
+        }
+
+        public bool SpellHit()
+        {
+            return spellHit;
+        }
+
+        public bool OnCooldown()
+        {
+            return onCooldown;
+        }
     }
 }
