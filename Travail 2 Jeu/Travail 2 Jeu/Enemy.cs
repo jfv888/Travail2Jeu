@@ -50,6 +50,11 @@ namespace Travail_2_Jeu
             this.enemySkinPositionX = enemySkinPositionX;
         }
 
+        public int GetEnenyWalkAnimation()
+        {
+            return enemySkinPositionX;
+        }
+
         public void Move()
         {
             enemyPositionY += enemySpeed;

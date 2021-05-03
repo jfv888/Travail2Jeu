@@ -38,6 +38,11 @@ namespace Travail_2_Jeu
             this.alive = true;
         }
 
+        public int GetPlayerWidth()
+        {
+            return playerWidth;
+        }
+
         public Bitmap GetCharacterBitmap()
         {
             return characterBitmap;
