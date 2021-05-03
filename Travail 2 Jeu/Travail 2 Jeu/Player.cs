@@ -37,5 +37,69 @@ namespace Travail_2_Jeu
             this.characterHitbox = new RectangleF(playerPositionX, playerPositionY, playerWidth, playerHeight);
             this.alive = true;
         }
+
+        public Bitmap GetCharacterBitmap()
+        {
+            return characterBitmap;
+        }
+
+        public void SetCharacterWalkAnimation(int characterSkinPositionX)
+        {
+            this.characterSkinPositionX = characterSkinPositionX;
+        }
+
+        public int GetPlayerPositionX()
+        {
+            return playerPositionX;
+        }
+
+        public int GetPlayerPositionY()
+        {
+            return playerPositionY;
+        }
+
+        public void GoUp()
+        {
+            characterSkinPositionY = 0;
+            playerPositionY = playerPositionY - characterSpeed;
+        }
+
+        public void GoDown()
+        {
+            characterSkinPositionY = 128;
+            playerPositionY = playerPositionY + characterSpeed;
+        }
+
+        public void GoLeft()
+        {
+            characterSkinPositionY = 192;
+            playerPositionX = playerPositionX - characterSpeed;
+        }
+
+        public void GoRight()
+        {
+            characterSkinPositionY = 64;
+            playerPositionX = playerPositionX + characterSpeed;
+        }
+
+        public RectangleF GetCharacterSkin()
+        {
+            return characterSkin;
+        }
+
+        public RectangleF GetCharacterHitbox()
+        {
+            return characterHitbox;
+        }
+
+        public bool IsAlive()
+        {
+            return alive;
+        }
+
+        public void Kill()
+        {
+            alive = false;
+        }
     }
 }
