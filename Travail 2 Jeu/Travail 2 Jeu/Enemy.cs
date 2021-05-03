@@ -34,7 +34,7 @@ namespace Travail_2_Jeu
             this.enemyPositionX = enemyPositionX;
             this.enemyPositionY = 0;
             this.enemySpeed = enemySpeed;
-            this.enemyBitmap = new Bitmap(enemy, enemyWidth, enemyHeight);
+            this.enemyBitmap = new Bitmap(enemy, 144, 256);
             this.enemySkin = new RectangleF(enemySkinPositionX, enemySkinPositionY, enemyWidth, enemyHeight);
             this.enemyHitbox = new RectangleF(enemyPositionX, enemyPositionY, enemyWidth, enemyHeight);
             this.alive = true;
@@ -72,11 +72,13 @@ namespace Travail_2_Jeu
 
         public RectangleF GetEnemySkin()
         {
+            enemySkin = new RectangleF(enemySkinPositionX, enemySkinPositionY, enemyWidth, enemyHeight);
             return enemySkin;
         }
 
         public RectangleF GetEnemyHitbox()
         {
+            enemyHitbox = new RectangleF(enemyPositionX, enemyPositionY, enemyWidth, enemyHeight);
             return enemyHitbox;
         }
 

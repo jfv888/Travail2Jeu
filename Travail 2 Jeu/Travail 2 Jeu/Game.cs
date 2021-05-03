@@ -15,6 +15,7 @@ namespace Travail_2_Jeu
         private Image GameBackground;
         private Bitmap map;
         private Bitmap GameBitmap;
+        private Random rng = new Random();
         private int GameWidth;
         private int GameHeight;
         private int Score;
@@ -79,6 +80,23 @@ namespace Travail_2_Jeu
             }
         }
 
+        public void PlayerWalkAnimation()
+        {
+            if (player.GetCharacterWalkAnimation() == 0)
+            {
+                player.SetCharacterWalkAnimation(96);
+            }
+            else
+            {
+                player.SetCharacterWalkAnimation(0);
+            }
+        }
+
+        public void PlayerStop()
+        {
+            player.SetCharacterWalkAnimation(48);
+        }
+
         public void DrawEnemies(Graphics graphics)
         {
             foreach (Enemy enemy in enemies)
@@ -88,6 +106,26 @@ namespace Travail_2_Jeu
                     graphics.DrawImage(enemy.GetEnemyBitmap(), enemy.GetEnemyPositionX(), enemy.GetEnemyPositionY(), enemy.GetEnemySkin(), GraphicsUnit.Pixel);
                 }
             }
+        }
+
+        public void PlayerMoveUP()
+        {
+            player.GoUp();
+        }
+
+        public void PlayerMoveDown()
+        {
+            player.GoDown();
+        }
+
+        public void PlayerMoveLeft()
+        {
+            player.GoLeft();
+        }
+
+        public void PlayerMoveRight()
+        {
+            player.GoRight();
         }
 
         public void DrawPlayer(Graphics graphics)
@@ -112,9 +150,9 @@ namespace Travail_2_Jeu
 
         public void SpawnEnemy(int EnemySpeed)
         {
-            Random rng = new Random();
             enemyCount++;
             Enemy enemy = new Enemy(enemyCount, rng.Next(0, GameWidth - player.GetPlayerWidth()), EnemySpeed);
+            enemies.Add(enemy);
         }
     }
 }

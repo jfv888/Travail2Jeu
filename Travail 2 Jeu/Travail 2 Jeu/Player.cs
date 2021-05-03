@@ -32,7 +32,7 @@ namespace Travail_2_Jeu
             this.characterSkinPositionX = 48;
             this.characterSkinPositionY = 0;
             this.characterSpeed = 5;
-            this.characterBitmap = new Bitmap(character, playerWidth, playerHeight);
+            this.characterBitmap = new Bitmap(character, 144, 256);
             this.characterSkin = new RectangleF(characterSkinPositionX, characterSkinPositionY, playerWidth, playerHeight);
             this.characterHitbox = new RectangleF(playerPositionX, playerPositionY, playerWidth, playerHeight);
             this.alive = true;
@@ -51,6 +51,11 @@ namespace Travail_2_Jeu
         public void SetCharacterWalkAnimation(int characterSkinPositionX)
         {
             this.characterSkinPositionX = characterSkinPositionX;
+        }
+
+        public int GetCharacterWalkAnimation()
+        {
+            return characterSkinPositionX;
         }
 
         public int GetPlayerPositionX()
@@ -89,11 +94,13 @@ namespace Travail_2_Jeu
 
         public RectangleF GetCharacterSkin()
         {
+            characterSkin = new RectangleF(characterSkinPositionX, characterSkinPositionY, playerWidth, playerHeight);
             return characterSkin;
         }
 
         public RectangleF GetCharacterHitbox()
         {
+            characterHitbox = new RectangleF(playerPositionX, playerPositionY, playerWidth, playerHeight);
             return characterHitbox;
         }
 
