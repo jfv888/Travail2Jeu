@@ -128,6 +128,26 @@ namespace Travail_2_Jeu
             player.GoRight();
         }
 
+        public int GetPlayerPositionX()
+        {
+            return player.GetPlayerPositionX();
+        }
+
+        public int GetPlayerPositionY()
+        {
+            return player.GetPlayerPositionY();
+        }
+
+        public int GetPlayerWidth()
+        {
+            return player.GetPlayerWidth();
+        }
+
+        public int GetPlayerHeight()
+        {
+            return player.GetPlayerHeigth();
+        }
+
         public void DrawPlayer(Graphics graphics)
         {
             graphics.DrawImage(player.GetCharacterBitmap(), player.GetPlayerPositionX(), player.GetPlayerPositionY(), player.GetCharacterSkin(), GraphicsUnit.Pixel);
@@ -153,6 +173,18 @@ namespace Travail_2_Jeu
             enemyCount++;
             Enemy enemy = new Enemy(enemyCount, rng.Next(0, GameWidth - player.GetPlayerWidth()), EnemySpeed);
             enemies.Add(enemy);
+        }
+
+        public void DisposeOutOffBoundsEnnemies()
+        {
+            foreach (Enemy enemy in enemies)
+            {
+                if (enemy.GetEnemyPositionY() > GameHeight)
+                {
+                    enemy.GetEnemyBitmap().Dispose();
+                    enemy.Kill();
+                }
+            }
         }
     }
 }

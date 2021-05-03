@@ -47,25 +47,27 @@ namespace Travail_2_Jeu
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
-            game.EnemiesMovement();
+            
 
-            if (playerinput.GetMoveUp())
+            if (playerinput.GetMoveUp() && game.GetPlayerPositionY() > 0)
             {
                 game.PlayerMoveUP();
             }
-            else if (playerinput.GetMoveDown())
+            else if (playerinput.GetMoveDown() && game.GetPlayerPositionY() < game.GetGameHeight() - game.GetPlayerHeight())
             {
                 game.PlayerMoveDown();
             }
-            else if (playerinput.GetMoveLeft())
+            else if (playerinput.GetMoveLeft() && game.GetPlayerPositionX() > 0)
             {
                 game.PlayerMoveLeft();
             }
-            else if (playerinput.GetMoveRight())
+            else if (playerinput.GetMoveRight() && game.GetPlayerPositionX() < game.GetGameWidth() - game.GetPlayerWidth())
             {
                 game.PlayerMoveRight();
             }
 
+            game.EnemiesMovement();
+            game.DisposeOutOffBoundsEnnemies();
             BackgroundImage = game.Draw();
 
         }

@@ -43,6 +43,11 @@ namespace Travail_2_Jeu
             return playerWidth;
         }
 
+        public int GetPlayerHeigth()
+        {
+            return playerHeight;
+        }
+
         public Bitmap GetCharacterBitmap()
         {
             return characterBitmap;
@@ -111,7 +116,7 @@ namespace Travail_2_Jeu
 
         public void Kill()
         {
-            alive = false;
+            alive = false;           
         }
     }
 }

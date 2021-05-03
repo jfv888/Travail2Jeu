@@ -90,6 +90,7 @@ namespace Travail_2_Jeu
         public void Kill()
         {
             alive = false;
+            enemy.Dispose();
         }
     }
 }
