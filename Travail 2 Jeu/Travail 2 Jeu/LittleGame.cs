@@ -15,16 +15,16 @@ namespace Travail_2_Jeu
         private Game game;
         private PlayerInput playerinput;
         private Label Score;
-        private int EnemySpeed;
+        private int GameDifficulty;
 
-        public LittleGame()
+        public LittleGame(int GameDifficulty)
         {
             InitializeComponent();
+            this.GameDifficulty = GameDifficulty;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            EnemySpeed = 2;
             game = new Game();
             playerinput = new PlayerInput();
             SetupGame();
@@ -179,12 +179,7 @@ namespace Travail_2_Jeu
 
         private void EnemySpawnTimer_Tick(object sender, EventArgs e)
         {
-            game.SpawnEnemy(EnemySpeed);
-        }
-
-        public void SetDifficulty(int Difficulty)
-        {
-            EnemySpeed = Difficulty;
+            game.SpawnEnemy(GameDifficulty);
         }
     }
 }

@@ -54,11 +54,11 @@
       <DependentUpon>LittleGame.cs</DependentUpon>
     </Compile>
     <Compile Include="Game.cs" />
-    <Compile Include="Menu.cs">
+    <Compile Include="MyMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <Compile Include="MyMenu.Designer.cs">
+      <DependentUpon>MyMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="PlayerInput.cs" />
@@ -74,8 +74,8 @@
     <EmbeddedResource Include="LittleGame.resx">
       <DependentUpon>LittleGame.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <EmbeddedResource Include="MyMenu.resx">
+      <DependentUpon>MyMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

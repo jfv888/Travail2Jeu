@@ -16,7 +16,7 @@ namespace Travail_2_Jeu
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Menu());
+            Application.Run(new MyMenu(5));
         }
     }
 }

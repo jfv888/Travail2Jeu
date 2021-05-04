@@ -10,20 +10,22 @@ using System.Windows.Forms;
 
 namespace Travail_2_Jeu
 {
-    public partial class Menu : Form
+    public partial class MyMenu : Form
     {
         private int GameDifficulty;
 
-        public Menu()
+        public MyMenu(int GameDifficulty)
         {
             InitializeComponent();
+            this.GameDifficulty = GameDifficulty;
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            LittleGame littleGame = new LittleGame();
-            littleGame.SetDifficulty(GameDifficulty);
+            this.Hide();
+            LittleGame littleGame = new LittleGame(GameDifficulty);
             littleGame.ShowDialog();
+            this.Close();
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
@@ -31,6 +33,7 @@ namespace Travail_2_Jeu
             this.Hide();
             Settings settings = new Settings();
             settings.ShowDialog();
+            this.Close();
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
@@ -40,12 +43,7 @@ namespace Travail_2_Jeu
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            GameDifficulty = 3;
-        }
 
-        public void SetGameDifficulty(int GameDifficulty)
-        {
-            this.GameDifficulty = GameDifficulty;
         }
     }
 }

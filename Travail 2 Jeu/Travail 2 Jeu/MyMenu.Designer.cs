@@ -1,6 +1,6 @@
 ﻿namespace Travail_2_Jeu
 {
-    partial class Menu
+    partial class MyMenu
     {
         /// <summary>
         /// Required designer variable.

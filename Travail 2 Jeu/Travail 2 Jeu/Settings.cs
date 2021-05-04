@@ -12,7 +12,7 @@ namespace Travail_2_Jeu
 {
     public partial class Settings : Form
     {
-        int Difficulty;
+        int GameDifficulty;
 
         public Settings()
         {
@@ -21,17 +21,34 @@ namespace Travail_2_Jeu
 
         private void btnEasy_Click(object sender, EventArgs e)
         {
-            Difficulty = 3;
+            GameDifficulty = 3;
+            this.Hide();
+            MyMenu mymenu = new MyMenu(GameDifficulty);
+            mymenu.ShowDialog();
+            this.Close();
         }
 
         private void btnNormal_Click(object sender, EventArgs e)
         {
-            Difficulty = 4;
+            GameDifficulty = 5;
+            this.Hide();
+            MyMenu mymenu = new MyMenu(GameDifficulty);
+            mymenu.ShowDialog();
+            this.Close();
         }
 
         private void btnHard_Click(object sender, EventArgs e)
         {
-            Difficulty = 5;
+            GameDifficulty = 7;
+            this.Hide();
+            MyMenu mymenu = new MyMenu(GameDifficulty);
+            mymenu.ShowDialog();
+            this.Close();
+        }
+
+        private void Settings_Load(object sender, EventArgs e)
+        {
+            GameDifficulty = 4;
         }
     }
 }
