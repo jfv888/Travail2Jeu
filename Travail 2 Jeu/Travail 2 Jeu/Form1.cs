@@ -51,28 +51,30 @@ namespace Travail_2_Jeu
         {
             Score = new Label();
             Score.Text = game.GetPlayerScore().ToString();
-            Score.Location = new Point(100, 100);
-            Score.Font = new Font("Calibri", 20);
+            Score.Location = new Point(0, 0);
+            Score.Font = new Font("Calibri", 18);
             Score.ForeColor = Color.Aqua;
+            Score.BackColor = Color.Transparent;
+            this.Controls.Add(Score);
         }
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
             
 
-            if (playerinput.GetMoveUp() && game.GetPlayerPositionY() > 0)
+            if (playerinput.GetMoveUp())
             {
                 game.PlayerMoveUP();
             }
-            else if (playerinput.GetMoveDown() && game.GetPlayerPositionY() < game.GetGameHeight() - game.GetPlayerHeight())
+            else if (playerinput.GetMoveDown())
             {
                 game.PlayerMoveDown();
             }
-            else if (playerinput.GetMoveLeft() && game.GetPlayerPositionX() > 0)
+            else if (playerinput.GetMoveLeft())
             {
                 game.PlayerMoveLeft();
             }
-            else if (playerinput.GetMoveRight() && game.GetPlayerPositionX() < game.GetGameWidth() - game.GetPlayerWidth())
+            else if (playerinput.GetMoveRight())
             {
                 game.PlayerMoveRight();
             }
@@ -80,11 +82,12 @@ namespace Travail_2_Jeu
             {
                 game.CastArcaneBolt();
             }
-
+            
             game.EnemiesMovement();
             game.MoveArcaneBolts();
             game.DisposeOutOffBoundsEnnemies();
             game.KillEnemyHit();
+            Score.Text = game.GetPlayerScore().ToString();
             BackgroundImage = game.Draw();
 
         }

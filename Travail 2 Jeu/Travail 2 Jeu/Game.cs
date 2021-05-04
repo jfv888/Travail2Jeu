@@ -110,42 +110,34 @@ namespace Travail_2_Jeu
 
         public void PlayerMoveUP()
         {
-            player.GoUp();
+            if (player.GetPlayerPositionY() > 0)
+            {
+                player.GoUp();
+            }
         }
 
         public void PlayerMoveDown()
         {
-            player.GoDown();
+            if (player.GetPlayerPositionY() < GameHeight - player.GetPlayerHeigth())
+            {
+                player.GoDown();
+            };
         }
 
         public void PlayerMoveLeft()
         {
-            player.GoLeft();
+            if (player.GetPlayerPositionX() > 0)
+            {
+                player.GoLeft();
+            }
         }
 
         public void PlayerMoveRight()
         {
-            player.GoRight();
-        }
-
-        public int GetPlayerPositionX()
-        {
-            return player.GetPlayerPositionX();
-        }
-
-        public int GetPlayerPositionY()
-        {
-            return player.GetPlayerPositionY();
-        }
-
-        public int GetPlayerWidth()
-        {
-            return player.GetPlayerWidth();
-        }
-
-        public int GetPlayerHeight()
-        {
-            return player.GetPlayerHeigth();
+            if (player.GetPlayerPositionX() < GameWidth - player.GetPlayerWidth())
+            {
+                player.GoRight();
+            }
         }
 
         public Bitmap Draw()
