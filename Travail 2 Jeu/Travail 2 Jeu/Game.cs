@@ -47,16 +47,6 @@ namespace Travail_2_Jeu
             return GameHeight;
         }
 
-        public Bitmap GetGameBitMap()
-        {
-            return GameBitmap;
-        }
-
-        public Bitmap GetMapBitMap()
-        {
-            return map;
-        }
-
         public void EnemiesMovement()
         {
             foreach (Enemy enemy in enemies)
@@ -187,6 +177,11 @@ namespace Travail_2_Jeu
             }
         }
 
+        public bool PlayerIsOFFCooldown()
+        {
+            return !player.IsOnCooldown();
+        }
+
         public void SetArcaneBoltOffCooldown()
         {
             player.SetOffCooldown();
@@ -214,12 +209,12 @@ namespace Travail_2_Jeu
             {
                 foreach (Spell spell in spells)
                 {
-                    if (enemy.GetEnemyHitbox().IntersectsWith(spell.GetSpellHitbox()))
+                    if (enemy.GetEnemyHitbox().IntersectsWith(spell.GetSpellHitbox()) && enemy.IsAlive() && spell.IsAlive())
                     {
-                        enemy.GetEnemyBitmap().Dispose();
-                        enemy.Kill();
                         spell.GetSpellBitmap().Dispose();
                         spell.Kill();
+                        enemy.GetEnemyBitmap().Dispose();
+                        enemy.Kill();
                         Score = Score + 100;
                     }
                 }
@@ -237,6 +232,19 @@ namespace Travail_2_Jeu
         public int GetPlayerScore()
         {
             return Score;
+        }
+
+        public bool GameOver()
+        {
+            bool gameover = false;
+            foreach (Enemy enemy in enemies)
+            {
+                if (enemy.GetEnemyHitbox().IntersectsWith(player.GetCharacterHitbox()) && enemy.IsAlive())
+                {
+                    gameover = true;
+                }
+            }
+            return gameover;
         }
     }
 }

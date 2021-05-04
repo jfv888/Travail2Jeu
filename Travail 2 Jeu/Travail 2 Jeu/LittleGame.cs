@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Travail_2_Jeu
 {
-    public partial class Form1 : Form
+    public partial class Jeu : Form
     {
         private Game game;
         private PlayerInput playerinput;
         private Label Score;
         private int EnemySpeed;
 
-        public Form1()
+        public Jeu()
         {
             InitializeComponent();
         }
@@ -81,6 +81,11 @@ namespace Travail_2_Jeu
             if (playerinput.GetCastSpell())
             {
                 game.CastArcaneBolt();
+                if (game.PlayerIsOFFCooldown())
+                {
+                    CastCooldown = new Timer();
+                    CastCooldown.Start();
+                }
             }
             
             game.EnemiesMovement();
@@ -89,6 +94,10 @@ namespace Travail_2_Jeu
             game.KillEnemyHit();
             Score.Text = game.GetPlayerScore().ToString();
             BackgroundImage = game.Draw();
+            if (game.GameOver())
+            {
+                MessageBox.Show("You Lost The Game");
+            }
 
         }
 

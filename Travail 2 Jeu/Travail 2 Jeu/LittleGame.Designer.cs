@@ -1,6 +1,6 @@
 ﻿namespace Travail_2_Jeu
 {
-    partial class Form1
+    partial class Jeu
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
