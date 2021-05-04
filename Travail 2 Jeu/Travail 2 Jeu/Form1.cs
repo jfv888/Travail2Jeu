@@ -14,6 +14,7 @@ namespace Travail_2_Jeu
     {
         private Game game;
         private PlayerInput playerinput;
+        private Label Score;
         private int EnemySpeed;
 
         public Form1()
@@ -27,12 +28,13 @@ namespace Travail_2_Jeu
             game = new Game();
             playerinput = new PlayerInput();
             SetupGame();
+            SetupScoreLabel();
         }
 
         private void SetupGame()
         {
             DoubleBuffered = true;
-            BackgroundImageLayout = ImageLayout.None;
+            BackgroundImageLayout = ImageLayout.None;           
             Width = game.GetGameWidth();
             Height = game.GetGameHeight();
             GameTimer.Interval = 15;
@@ -43,6 +45,15 @@ namespace Travail_2_Jeu
             EnemiesWalkAnimationTimer.Start();
             CastCooldown.Start();
             EnemySpawnTimer.Start();
+        }
+
+        private void SetupScoreLabel()
+        {
+            Score = new Label();
+            Score.Text = game.GetPlayerScore().ToString();
+            Score.Location = new Point(100, 100);
+            Score.Font = new Font("Calibri", 20);
+            Score.ForeColor = Color.Aqua;
         }
 
         private void GameTimer_Tick(object sender, EventArgs e)

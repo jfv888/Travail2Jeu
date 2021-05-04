@@ -241,5 +241,10 @@ namespace Travail_2_Jeu
                 spell.Move();
             }
         }
+
+        public int GetPlayerScore()
+        {
+            return Score;
+        }
     }
 }
