@@ -21,6 +21,7 @@ namespace Travail_2_Jeu
         private RectangleF characterSkin;
         private RectangleF characterHitbox;
         private bool alive;
+        private bool CastCooldown;
 
         public Player(int playerPositionX, int playerPositionY)
         {
@@ -36,6 +37,7 @@ namespace Travail_2_Jeu
             this.characterSkin = new RectangleF(characterSkinPositionX, characterSkinPositionY, playerWidth, playerHeight);
             this.characterHitbox = new RectangleF(playerPositionX, playerPositionY, playerWidth, playerHeight);
             this.alive = true;
+            this.CastCooldown = false;
         }
 
         public int GetPlayerWidth()
@@ -71,6 +73,11 @@ namespace Travail_2_Jeu
         public int GetPlayerPositionY()
         {
             return playerPositionY;
+        }
+
+        public void Cast()
+        {
+            characterSkinPositionY = 0;
         }
 
         public void GoUp()
@@ -117,6 +124,21 @@ namespace Travail_2_Jeu
         public void Kill()
         {
             alive = false;           
+        }
+
+        public bool IsOnCooldown()
+        {
+            return CastCooldown;
+        }
+
+        public void SetOnCooldown()
+        {
+            CastCooldown = true;
+        }
+
+        public void SetOffCooldown()
+        {
+            CastCooldown = false;
         }
     }
 }

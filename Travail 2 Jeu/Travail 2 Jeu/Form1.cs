@@ -65,9 +65,15 @@ namespace Travail_2_Jeu
             {
                 game.PlayerMoveRight();
             }
+            if (playerinput.GetCastSpell())
+            {
+                game.CastArcaneBolt();
+            }
 
             game.EnemiesMovement();
+            game.MoveArcaneBolts();
             game.DisposeOutOffBoundsEnnemies();
+            game.KillEnemyHit();
             BackgroundImage = game.Draw();
 
         }
@@ -84,7 +90,7 @@ namespace Travail_2_Jeu
 
         private void CastCooldown_Tick(object sender, EventArgs e)
         {
-
+            game.SetArcaneBoltOffCooldown();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -108,6 +114,10 @@ namespace Travail_2_Jeu
             {
                 playerinput.SetMoveRight(true);
                 PlayerWalkAnimationTimer.Start();
+            }
+            if(e.KeyCode == Keys.Space)
+            {
+                playerinput.SetCastSpell(true);               
             }
         }
 
@@ -135,6 +145,11 @@ namespace Travail_2_Jeu
             {
                 playerinput.SetMoveRight(false);
                 PlayerWalkAnimationTimer.Stop();
+                game.PlayerStop();
+            }
+            if (e.KeyCode == Keys.Space)
+            {
+                playerinput.SetCastSpell(false);
                 game.PlayerStop();
             }
         }

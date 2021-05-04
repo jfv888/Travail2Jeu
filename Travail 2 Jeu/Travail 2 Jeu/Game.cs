@@ -148,11 +148,6 @@ namespace Travail_2_Jeu
             return player.GetPlayerHeigth();
         }
 
-        public void DrawPlayer(Graphics graphics)
-        {
-            graphics.DrawImage(player.GetCharacterBitmap(), player.GetPlayerPositionX(), player.GetPlayerPositionY(), player.GetCharacterSkin(), GraphicsUnit.Pixel);
-        }
-
         public Bitmap Draw()
         {
             GameBitmap.Dispose();
@@ -163,6 +158,7 @@ namespace Travail_2_Jeu
                 graphics.DrawImage(map, 0, 0);
                 graphics.DrawImage(player.GetCharacterBitmap(), player.GetPlayerPositionX(), player.GetPlayerPositionY(), player.GetCharacterSkin(), GraphicsUnit.Pixel);
                 DrawEnemies(graphics);
+                DrawSpells(graphics);
             }
 
             return GameBitmap;
@@ -184,6 +180,65 @@ namespace Travail_2_Jeu
                     enemy.GetEnemyBitmap().Dispose();
                     enemy.Kill();
                 }
+            }
+        }
+
+        public void CastArcaneBolt()
+        {
+            if (!player.IsOnCooldown())
+            {
+                spellCount++;
+                Spell spell = new Spell(spellCount, player.GetPlayerPositionX(), player.GetPlayerPositionY());
+                spells.Add(spell);
+                player.SetOnCooldown();
+                player.Cast();
+            }
+        }
+
+        public void SetArcaneBoltOffCooldown()
+        {
+            player.SetOffCooldown();
+        }
+
+        public void SetArcaneBoltOnCooldown()
+        {
+            player.SetOnCooldown();
+        }
+
+        public void DrawSpells(Graphics graphics)
+        {
+            foreach (Spell spell in spells)
+            {
+                if (spell.IsAlive())
+                {
+                    graphics.DrawImage(spell.GetSpellBitmap(), spell.GetSpellPositionX(), spell.GetSpellPositionY());
+                }
+            }
+        }
+
+        public void KillEnemyHit()
+        {
+            foreach (Enemy enemy in enemies)
+            {
+                foreach (Spell spell in spells)
+                {
+                    if (enemy.GetEnemyHitbox().IntersectsWith(spell.GetSpellHitbox()))
+                    {
+                        enemy.GetEnemyBitmap().Dispose();
+                        enemy.Kill();
+                        spell.GetSpellBitmap().Dispose();
+                        spell.Kill();
+                        Score = Score + 100;
+                    }
+                }
+            }
+        }
+
+        public void MoveArcaneBolts()
+        {
+            foreach (Spell spell in spells)
+            {
+                spell.Move();
             }
         }
     }
