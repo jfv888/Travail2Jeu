@@ -1,6 +1,6 @@
 ﻿namespace Travail_2_Jeu
 {
-    partial class Jeu
+    partial class LittleGame
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -61,15 +61,15 @@
             this.EnemySpawnTimer.Interval = 500;
             this.EnemySpawnTimer.Tick += new System.EventHandler(this.EnemySpawnTimer_Tick);
             // 
-            // Form1
+            // Jeu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.DoubleBuffered = true;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Jeu";
+            this.Text = "Jeu";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);

@@ -12,6 +12,8 @@ namespace Travail_2_Jeu
 {
     public partial class Settings : Form
     {
+        int Difficulty;
+
         public Settings()
         {
             InitializeComponent();
@@ -19,17 +21,17 @@ namespace Travail_2_Jeu
 
         private void btnEasy_Click(object sender, EventArgs e)
         {
-
+            Difficulty = 3;
         }
 
         private void btnNormal_Click(object sender, EventArgs e)
         {
-
+            Difficulty = 4;
         }
 
         private void btnHard_Click(object sender, EventArgs e)
         {
-
+            Difficulty = 5;
         }
     }
 }

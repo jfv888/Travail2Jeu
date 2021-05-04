@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Travail_2_Jeu
 {
-    public partial class Jeu : Form
+    public partial class LittleGame : Form
     {
         private Game game;
         private PlayerInput playerinput;
         private Label Score;
         private int EnemySpeed;
 
-        public Jeu()
+        public LittleGame()
         {
             InitializeComponent();
         }
@@ -180,6 +180,11 @@ namespace Travail_2_Jeu
         private void EnemySpawnTimer_Tick(object sender, EventArgs e)
         {
             game.SpawnEnemy(EnemySpeed);
+        }
+
+        public void SetDifficulty(int Difficulty)
+        {
+            EnemySpeed = Difficulty;
         }
     }
 }

@@ -37,7 +37,7 @@
             // btnFacile
             // 
             this.btnFacile.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFacile.Location = new System.Drawing.Point(174, 87);
+            this.btnFacile.Location = new System.Drawing.Point(163, 90);
             this.btnFacile.Name = "btnFacile";
             this.btnFacile.Size = new System.Drawing.Size(142, 69);
             this.btnFacile.TabIndex = 0;
@@ -48,7 +48,7 @@
             // btnNormal
             // 
             this.btnNormal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNormal.Location = new System.Drawing.Point(174, 162);
+            this.btnNormal.Location = new System.Drawing.Point(163, 165);
             this.btnNormal.Name = "btnNormal";
             this.btnNormal.Size = new System.Drawing.Size(142, 69);
             this.btnNormal.TabIndex = 1;
@@ -59,7 +59,7 @@
             // btnHard
             // 
             this.btnHard.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHard.Location = new System.Drawing.Point(174, 237);
+            this.btnHard.Location = new System.Drawing.Point(163, 240);
             this.btnHard.Name = "btnHard";
             this.btnHard.Size = new System.Drawing.Size(142, 69);
             this.btnHard.TabIndex = 2;
@@ -71,7 +71,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(205, 60);
+            this.label1.Location = new System.Drawing.Point(194, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 24);
             this.label1.TabIndex = 3;
@@ -81,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(511, 405);
+            this.ClientSize = new System.Drawing.Size(484, 411);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnHard);
             this.Controls.Add(this.btnNormal);
