@@ -39,7 +39,7 @@ namespace Travail_2_Jeu
             Height = game.GetGameHeight();
             GameTimer.Interval = 15;
             EnemiesWalkAnimationTimer.Interval = 250;
-            CastCooldown.Interval = 500;
+            CastCooldown.Interval = 100 * GameDifficulty;
             EnemySpawnTimer.Interval = 500;
             GameTimer.Start();
             EnemiesWalkAnimationTimer.Start();
@@ -96,7 +96,7 @@ namespace Travail_2_Jeu
             BackgroundImage = game.Draw();
             if (game.GameOver())
             {
-                MessageBox.Show("You Lost The Game");
+                GameOver();
             }
 
         }
@@ -180,6 +180,15 @@ namespace Travail_2_Jeu
         private void EnemySpawnTimer_Tick(object sender, EventArgs e)
         {
             game.SpawnEnemy(GameDifficulty);
+        }
+
+        private void GameOver()
+        {            
+            this.Hide();
+            MessageBox.Show("You Lost The Game Your Score Is : " + Score.Text.ToString());
+            MyMenu mymenu = new MyMenu(GameDifficulty);
+            mymenu.ShowDialog();
+            this.Close();           
         }
     }
 }

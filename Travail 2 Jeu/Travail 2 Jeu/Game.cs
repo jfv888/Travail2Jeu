@@ -239,8 +239,9 @@ namespace Travail_2_Jeu
             bool gameover = false;
             foreach (Enemy enemy in enemies)
             {
-                if (enemy.GetEnemyHitbox().IntersectsWith(player.GetCharacterHitbox()) && enemy.IsAlive())
+                if (enemy.GetEnemyHitbox().IntersectsWith(player.GetCharacterHitbox()) && enemy.IsAlive() && player.IsAlive())
                 {
+                    player.Kill();
                     gameover = true;
                 }
             }
