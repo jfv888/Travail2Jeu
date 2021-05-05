@@ -10,6 +10,7 @@ namespace Travail_2_Jeu
     class Enemy
     {
         private int enemyNumber;
+        private int enemyPointReward;
         private Image enemy;
         private Bitmap enemyBitmap;
         private int enemyWidth;
@@ -26,7 +27,16 @@ namespace Travail_2_Jeu
         public Enemy(int enemyNumber, int enemyPositionX, int enemySpeed)
         {
             this.enemyNumber = enemyNumber;
-            this.enemy = Image.FromFile("../../Images/death_knight.png");
+            if(enemyNumber % 5 == 0)
+            {
+                this.enemy = Image.FromFile("../../Images/dead_lich.png");
+                this.enemyPointReward = 300;
+            }
+            else
+            {
+                this.enemy = Image.FromFile("../../Images/death_knight.png");
+                this.enemyPointReward = 100;
+            }
             this.enemyWidth = 47;
             this.enemyHeight = 64;
             this.enemySkinPositionX = 48;
@@ -91,6 +101,11 @@ namespace Travail_2_Jeu
         {
             alive = false;
             enemy.Dispose();
+        }
+
+        public int GetPointReward()
+        {
+            return enemyPointReward;
         }
     }
 }

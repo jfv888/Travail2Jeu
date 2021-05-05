@@ -215,7 +215,7 @@ namespace Travail_2_Jeu
                         spell.Kill();
                         enemy.GetEnemyBitmap().Dispose();
                         enemy.Kill();
-                        Score = Score + 100;
+                        Score = Score + enemy.GetPointReward();
                     }
                 }
             }

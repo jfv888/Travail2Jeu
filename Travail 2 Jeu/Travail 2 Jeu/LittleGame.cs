@@ -185,7 +185,7 @@ namespace Travail_2_Jeu
         private void GameOver()
         {            
             this.Hide();
-            MessageBox.Show("You Lost The Game Your Score Is : " + Score.Text.ToString());
+            MessageBox.Show("You Lost ! Your Score Is : " + Score.Text.ToString());
             MyMenu mymenu = new MyMenu(GameDifficulty);
             mymenu.ShowDialog();
             this.Close();           

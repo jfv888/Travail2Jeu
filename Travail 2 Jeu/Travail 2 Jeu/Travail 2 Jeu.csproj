@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\Arcane_Effect.png" />
+    <Content Include="Images\dead_lich.png" />
     <Content Include="Images\death_knight.png" />
     <Content Include="Images\fallen_warrior.png" />
     <Content Include="Images\Grass_Texture.png" />
