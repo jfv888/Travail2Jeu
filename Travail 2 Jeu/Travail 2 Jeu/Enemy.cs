@@ -31,11 +31,13 @@ namespace Travail_2_Jeu
             {
                 this.enemy = Image.FromFile("../../Images/dead_lich.png");
                 this.enemyPointReward = 300;
+                this.enemySpeed = enemySpeed * 3 / 2;
             }
             else
             {
                 this.enemy = Image.FromFile("../../Images/death_knight.png");
                 this.enemyPointReward = 100;
+                this.enemySpeed = enemySpeed;
             }
             this.enemyWidth = 47;
             this.enemyHeight = 64;
@@ -43,7 +45,6 @@ namespace Travail_2_Jeu
             this.enemySkinPositionY = 128;
             this.enemyPositionX = enemyPositionX;
             this.enemyPositionY = 0;
-            this.enemySpeed = enemySpeed;
             this.enemyBitmap = new Bitmap(enemy, 144, 256);
             this.enemySkin = new RectangleF(enemySkinPositionX, enemySkinPositionY, enemyWidth, enemyHeight);
             this.enemyHitbox = new RectangleF(enemyPositionX, enemyPositionY, enemyWidth, enemyHeight);

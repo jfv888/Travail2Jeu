@@ -12,6 +12,7 @@ namespace Travail_2_Jeu
 {
     public partial class LittleGame : Form
     {
+        System.Media.SoundPlayer BackGroundMusic = new System.Media.SoundPlayer();
         private Game game;
         private PlayerInput playerinput;
         private Label Score;
@@ -20,6 +21,7 @@ namespace Travail_2_Jeu
         public LittleGame(int GameDifficulty)
         {
             InitializeComponent();
+            BackGroundMusic.SoundLocation = "../../Sounds/BackGroundMusic.wav";
             this.GameDifficulty = GameDifficulty;
         }
 
@@ -45,6 +47,7 @@ namespace Travail_2_Jeu
             EnemiesWalkAnimationTimer.Start();
             CastCooldown.Start();
             EnemySpawnTimer.Start();
+            BackGroundMusic.PlayLooping();
         }
 
         private void SetupScoreLabel()
@@ -96,6 +99,7 @@ namespace Travail_2_Jeu
             BackgroundImage = game.Draw();
             if (game.GameOver())
             {
+                BackGroundMusic.Stop();
                 GameOver();
             }
 

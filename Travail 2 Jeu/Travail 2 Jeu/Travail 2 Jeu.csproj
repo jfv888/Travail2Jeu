@@ -108,6 +108,7 @@
     <Content Include="Images\death_knight.png" />
     <Content Include="Images\fallen_warrior.png" />
     <Content Include="Images\Grass_Texture.png" />
+    <Content Include="Sounds\BackGroundMusic.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
