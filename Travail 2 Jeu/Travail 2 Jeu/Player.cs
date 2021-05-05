@@ -123,7 +123,9 @@ namespace Travail_2_Jeu
 
         public void Kill()
         {
-            alive = false;           
+            alive = false;
+            character.Dispose();
+            characterBitmap.Dispose();
         }
 
         public bool IsOnCooldown()

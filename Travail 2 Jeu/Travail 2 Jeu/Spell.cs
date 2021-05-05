@@ -84,6 +84,7 @@ namespace Travail_2_Jeu
         {
             alive = false;
             spell.Dispose();
+            spellBitmap.Dispose();
         }
 
         public void Move()

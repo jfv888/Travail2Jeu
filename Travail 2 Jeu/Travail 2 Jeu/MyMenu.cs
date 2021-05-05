@@ -13,6 +13,7 @@ namespace Travail_2_Jeu
     public partial class MyMenu : Form
     {
         private int GameDifficulty;
+        LittleGame littleGame;
 
         public MyMenu(int GameDifficulty)
         {
@@ -23,7 +24,12 @@ namespace Travail_2_Jeu
         private void btnPlay_Click(object sender, EventArgs e)
         {
             this.Hide();
-            LittleGame littleGame = new LittleGame(GameDifficulty);
+            if (littleGame != null)
+            {
+                littleGame.Close();
+                littleGame.Dispose();
+            }
+            littleGame = new LittleGame(GameDifficulty);
             littleGame.ShowDialog();
             this.Close();
         }

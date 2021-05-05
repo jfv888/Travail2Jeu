@@ -98,6 +98,14 @@ namespace Travail_2_Jeu
             }
         }
 
+        public void DrawPlayer(Graphics graphics)
+        {
+            if (player.IsAlive())
+            {
+                graphics.DrawImage(player.GetCharacterBitmap(), player.GetPlayerPositionX(), player.GetPlayerPositionY(), player.GetCharacterSkin(), GraphicsUnit.Pixel);
+            }
+        }
+
         public void PlayerMoveUP()
         {
             if (player.GetPlayerPositionY() > 0)
@@ -138,7 +146,7 @@ namespace Travail_2_Jeu
             using (Graphics graphics = Graphics.FromImage(GameBitmap))
             {
                 graphics.DrawImage(map, 0, 0);
-                graphics.DrawImage(player.GetCharacterBitmap(), player.GetPlayerPositionX(), player.GetPlayerPositionY(), player.GetCharacterSkin(), GraphicsUnit.Pixel);
+                DrawPlayer(graphics);
                 DrawEnemies(graphics);
                 DrawSpells(graphics);
             }
@@ -211,9 +219,7 @@ namespace Travail_2_Jeu
                 {
                     if (enemy.GetEnemyHitbox().IntersectsWith(spell.GetSpellHitbox()) && enemy.IsAlive() && spell.IsAlive())
                     {
-                        spell.GetSpellBitmap().Dispose();
                         spell.Kill();
-                        enemy.GetEnemyBitmap().Dispose();
                         enemy.Kill();
                         Score = Score + enemy.GetPointReward();
                     }
@@ -246,6 +252,13 @@ namespace Travail_2_Jeu
                 }
             }
             return gameover;
+        }
+
+        public void DisposeGame()
+        {
+            GameBackground.Dispose();
+            map.Dispose();
+            GameBitmap.Dispose();
         }
     }
 }

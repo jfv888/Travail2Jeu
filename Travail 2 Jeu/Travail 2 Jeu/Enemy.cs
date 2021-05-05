@@ -101,6 +101,7 @@ namespace Travail_2_Jeu
         {
             alive = false;
             enemy.Dispose();
+            enemyBitmap.Dispose();
         }
 
         public int GetPointReward()
