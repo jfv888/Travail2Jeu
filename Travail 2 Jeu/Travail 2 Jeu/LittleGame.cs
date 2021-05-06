@@ -84,9 +84,8 @@ namespace Travail_2_Jeu
             if (playerinput.GetCastSpell())
             {
                 game.CastArcaneBolt();
-                if (game.PlayerIsOFFCooldown())
+                if (game.PlayerIsOnCooldown())
                 {
-                    CastCooldown = new Timer();
                     CastCooldown.Start();
                 }
             }
@@ -118,6 +117,7 @@ namespace Travail_2_Jeu
         private void CastCooldown_Tick(object sender, EventArgs e)
         {
             game.SetArcaneBoltOffCooldown();
+            CastCooldown.Stop();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)

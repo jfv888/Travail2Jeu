@@ -185,9 +185,9 @@ namespace Travail_2_Jeu
             }
         }
 
-        public bool PlayerIsOFFCooldown()
+        public bool PlayerIsOnCooldown()
         {
-            return !player.IsOnCooldown();
+            return player.IsOnCooldown();
         }
 
         public void SetArcaneBoltOffCooldown()
