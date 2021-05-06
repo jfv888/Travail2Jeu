@@ -106,6 +106,14 @@ namespace Travail_2_Jeu
             }
         }
 
+        public void DrawMap(Graphics graphics)
+        {
+            if (player.IsAlive())
+            {
+                graphics.DrawImage(map, 0, 0);
+            }
+        }
+
         public void PlayerMoveUP()
         {
             if (player.GetPlayerPositionY() > 0)
@@ -145,12 +153,11 @@ namespace Travail_2_Jeu
 
             using (Graphics graphics = Graphics.FromImage(GameBitmap))
             {
-                graphics.DrawImage(map, 0, 0);
+                DrawMap(graphics);
                 DrawPlayer(graphics);
                 DrawEnemies(graphics);
-                DrawSpells(graphics);
+                DrawSpells(graphics);               
             }
-
             return GameBitmap;
         }
 
@@ -167,8 +174,18 @@ namespace Travail_2_Jeu
             {
                 if (enemy.GetEnemyPositionY() > GameHeight)
                 {
-                    enemy.GetEnemyBitmap().Dispose();
                     enemy.Kill();
+                }
+            }
+        }
+
+        public void DisposeOutOffBoundsSpells()
+        {
+            foreach (Spell spell in spells)
+            {
+                if (spell.GetSpellPositionY() < 0)
+                {
+                    spell.Kill();
                 }
             }
         }
@@ -256,9 +273,18 @@ namespace Travail_2_Jeu
 
         public void DisposeGame()
         {
+            GameBitmap.Dispose();
             GameBackground.Dispose();
             map.Dispose();
-            GameBitmap.Dispose();
+            foreach (Enemy enemy in enemies)
+            {
+                enemy.Kill();
+            }
+            foreach (Spell spell in spells)
+            {
+                spell.Kill();
+            }
+            player.Kill();
         }
     }
 }

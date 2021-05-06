@@ -63,7 +63,7 @@ namespace Travail_2_Jeu
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
-            
+
 
             if (playerinput.GetMoveUp())
             {
@@ -93,12 +93,16 @@ namespace Travail_2_Jeu
             game.EnemiesMovement();
             game.MoveArcaneBolts();
             game.DisposeOutOffBoundsEnnemies();
+            game.DisposeOutOffBoundsSpells();
             game.KillEnemyHit();
             Score.Text = game.GetPlayerScore().ToString();
             BackgroundImage = game.Draw();
             if (game.GameOver())
             {
                 BackGroundMusic.Stop();
+                game.DisposeGame();
+                BackGroundMusic.Dispose();
+                Score.Dispose();
                 GameOver();
             }
 
